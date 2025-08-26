@@ -1,11 +1,22 @@
 from stats import *
+import sys
 
 def get_book_text(filename):
-    with open(filename, encoding="utf-8") as f:
-        return f.read()
+    try:
+        with open(filename) as f:
+            return f.read()
+    except:
+        print("Could not open book text file")
+        sys.exit(1)
+
+
 
 def main():
-    path = "books/frankenstein.txt"
+
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    path = sys.argv[1]
 
     book_text = get_book_text(path)
 
