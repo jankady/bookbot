@@ -19,6 +19,6 @@ def main():
     print("--------- Character Count -------")
     for book in books:
         if book['char'].isalpha():
-            print(book)
+            print(f"{book['char']}: {book['num']}")
     print("============= END ===============")
 main()
